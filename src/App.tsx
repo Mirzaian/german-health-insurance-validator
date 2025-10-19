@@ -1,37 +1,36 @@
 
-import { useState } from 'react';
-import Button from '@mui/material/Button';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+export default App;
+import { useMemo } from 'react';
+import { useSettings, type Language } from './context/SettingsContext';
 import './App.css';
+import { ThemeProvider, CssBaseline, Button, Box, Typography } from '@mui/material';
+import { createCustomTheme } from './theme/customTheme';
+import SettingsDialog from './components/SettingsDialog';
+import { translations } from './utils/translations';
 
+/**
+ * Main application component.
+ *
+ * Sets up the theme and language context, renders the settings dialog
+ * and displays the main UI including a button to open settings and the app title
+ *
+ * The root component of the German Health Insurance Validator app
+ */
 function App() {
-  const [count, setCount] = useState(0)
+  const { primaryColor, mode, language, setSettingsOpen } = useSettings();
+  const theme = useMemo(() => createCustomTheme(primaryColor, mode), [primaryColor, mode]);
+  const t = translations[language as Language];
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <Button variant="contained" color="primary" onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </Button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <SettingsDialog />
+      <Box sx={{ textAlign: 'center', minHeight: '100vh', bgcolor: 'background.default', color: 'text.primary' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'flex-end', p: 2 }}>
+          <Button variant="outlined" onClick={() => setSettingsOpen(true)}>{t.openSettings}</Button>
+        </Box>
+        <Typography variant="h3" sx={{ mt: 4 }}>{t.title}</Typography>
+      </Box>
+    </ThemeProvider>
+  );
 }
-
-export default App
