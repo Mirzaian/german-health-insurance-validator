@@ -9,16 +9,16 @@ A modern, accessible web application for validating German health insurance numb
 
 ## Features
 
-- Accurate KVNR Validation**: Implements the official Luhn algorithm for German health insurance number validation
-- Bilingual Support**: Available in German and English
-- Customizable Theming**: Light/dark mode with customizable primary colors
-- Full Accessibility**: WCAG compliant with proper ARIA attributes and screen reader support
-- Responsive Design**: Optimized for mobile, tablet, and desktop devices
-- Modern Tech Stack**: Built with React 19, TypeScript, and Material-UI v7
+- **Professional KVNR Validation**: Powered by [`kvnr-utils`](https://www.npmjs.com/package/kvnr-utils) - my own NPM library for German health insurance validation
+- **Bilingual Support**: Available in German and English
+- **Customizable Theming**: Light/dark mode with customizable primary colors
+- **Full Accessibility**: WCAG compliant with proper ARIA attributes and screen reader support
+- **Responsive Design**: Optimized for mobile, tablet, and desktop devices
+- **Modern Tech Stack**: Built with React 19, TypeScript, and Material-UI v7
 
 ## What is a KVNR?
 
-A **Krankenversichertennummer (KVNR)** is the German health insurance number format:
+**Krankenversichertennummer (KVNR)** is the German health insurance number format:
 - **Format**: `Letter + 8 digits + 1 check digit` (e.g., `A123456789`)
 - **Validation**: Uses the Luhn algorithm for checksum verification
 - **Purpose**: Unique identifier for German health insurance members
@@ -84,18 +84,27 @@ src/
 
 ### KVNR Validation Algorithm
 
-The validation follows the official German specification:
+**Powered by [`kvnr-utils`](https://www.npmjs.com/package/kvnr-utils)** - a professional NPM package I developed specifically for German health insurance validation.
 
+The validation follows the official German specification:
 1. **Format Check**: Validates `^[A-Z][0-9]{8}[0-9]$` pattern
 2. **Letter Conversion**: Maps A-Z to 01-26
 3. **Luhn Algorithm**: Calculates and verifies checksum
 4. **Result**: Returns boolean validation result
 
 ```typescript
+import { isValidKVNR } from 'kvnr-utils';
+
 export function checkKvnr(kvnr: string): boolean {
-  // Implementation details in src/utils/kvnr.ts
+  return isValidKVNR(kvnr);
 }
 ```
+
+**Why use `kvnr-utils`?**
+- Thoroughly tested and production-ready
+- Lightweight with zero dependencies
+- TypeScript support out of the box
+- Follows official German health insurance specifications
 
 ### Accessibility Features
 
@@ -196,6 +205,10 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Related Projects
+
+- **[`kvnr-utils`](https://www.npmjs.com/package/kvnr-utils)**: The core validation library powering this application - also developed by me
 
 ## Acknowledgments
 
