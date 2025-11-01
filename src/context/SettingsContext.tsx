@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { appConfig } from '../config/appConfig';
 import type { ReactNode } from 'react';
 import type { SettingsContextType } from '../types/SettingsContextType';
+import { SettingsContext, type Language, type Mode } from '../hooks/useSettings';
 
 /**
  * Provides settings context to child components including theme configuration,
@@ -31,26 +32,4 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
     };
 
     return <SettingsContext.Provider value={value}>{children}</SettingsContext.Provider>;
-}
-
-import { createContext, useContext } from 'react';
-
-
-// Supported languages
-export type Language = 'de' | 'en';
-// Supported theme modes
-export type Mode = 'light' | 'dark';
-
-
-// Create context with undefined as default (to detect missing provider)
-export const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
-
-/**
- * Custom hook to access settings context
- * Throws error if context is not found (i.e., provider is missing)
- */
-export function useSettings() {
-    const ctx = useContext(SettingsContext);
-    if (!ctx) throw new Error('SettingsContext not found');
-    return ctx;
 }
