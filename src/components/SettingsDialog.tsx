@@ -59,6 +59,8 @@ function SettingsDialog() {
             id={dialogId}
             aria-labelledby="settings-dialog-title"
             aria-describedby="settings-dialog-description"
+            disablePortal
+            keepMounted={false}
         >
             <DialogTitle 
                 id="settings-dialog-title"
