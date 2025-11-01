@@ -119,26 +119,27 @@ export default function Impressum({ onBack }: ImpressumProps) {
             </Typography>
             
             <Typography variant="body1" sx={{ mb: 2 }}>
-              <strong>[YOUR NAME]</strong><br />
-              [YOUR STREET AND NUMBER]<br />
-              [POSTAL CODE CITY]<br />
-              Germany
+              <strong>Kevin Mirzaian</strong><br />
+              An der Gehrengasse 51<br />
+              64319 Pfungstadt<br />
+              Deutschland
             </Typography>
 
             <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
               {t.legal.contact}
             </Typography>
             <Typography variant="body1" sx={{ mb: 2 }}>
-              Email: [YOUR EMAIL]<br />
-              Phone: [YOUR PHONE] (optional)
+              E-Mail: kevin@mirzaian.de<br />
+
             </Typography>
 
             <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
               {t.legal.responsibleContent}
             </Typography>
             <Typography variant="body1" sx={{ mb: 2 }}>
-              [YOUR NAME]<br />
-              [YOUR ADDRESS]
+              Kevin Mirzaian<br />
+              An der Gehrengasse 51<br />
+              64319 Pfungstadt
             </Typography>
 
             <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
