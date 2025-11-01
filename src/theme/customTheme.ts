@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material";
-import type { Mode } from "../context/SettingsContext";
+import type { Mode } from "../hooks/useSettings";
 import { appConfig } from '../config/appConfig';
 
 /**

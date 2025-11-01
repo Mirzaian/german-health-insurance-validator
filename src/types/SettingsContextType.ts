@@ -1,4 +1,4 @@
-import type { Language, Mode } from '../context/SettingsContext';
+import type { Language, Mode } from '../hooks/useSettings';
 
 /**
  * Represents the context type for settings.
