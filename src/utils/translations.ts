@@ -14,7 +14,7 @@ export const translations = {
     // App General
     app: {
       title: 'Deutsche KVNR Validator',
-      backToApp: 'Zurück zur Startseite',
+      backToApp: 'Zurück',
     },
     
     // Settings
@@ -102,7 +102,7 @@ export const translations = {
     // App General
     app: {
       title: 'German Health Insurance Validator',
-      backToApp: 'Back to Home',
+      backToApp: 'Back',
     },
     
     // Settings
