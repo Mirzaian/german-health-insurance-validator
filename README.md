@@ -9,12 +9,12 @@ A modern, accessible web application for validating German health insurance numb
 
 ## Features
 
-- ** Accurate KVNR Validation**: Implements the official Luhn algorithm for German health insurance number validation
-- ** Bilingual Support**: Available in German and English
-- ** Customizable Theming**: Light/dark mode with customizable primary colors
-- ** Full Accessibility**: WCAG compliant with proper ARIA attributes and screen reader support
-- ** Responsive Design**: Optimized for mobile, tablet, and desktop devices
-- ** Modern Tech Stack**: Built with React 19, TypeScript, and Material-UI v7
+- Accurate KVNR Validation**: Implements the official Luhn algorithm for German health insurance number validation
+- Bilingual Support**: Available in German and English
+- Customizable Theming**: Light/dark mode with customizable primary colors
+- Full Accessibility**: WCAG compliant with proper ARIA attributes and screen reader support
+- Responsive Design**: Optimized for mobile, tablet, and desktop devices
+- Modern Tech Stack**: Built with React 19, TypeScript, and Material-UI v7
 
 ## What is a KVNR?
 
