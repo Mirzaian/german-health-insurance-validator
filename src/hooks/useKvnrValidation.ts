@@ -1,7 +1,21 @@
 import { useState, useCallback } from 'react';
 import { checkKvnr } from '../utils/kvnr';
 
-export type ValidationResult = 'valid' | 'invalid' | 'error' | null;
+export type ValidationResult = 'valid' | 'invalid' | 'error' | 'format-error' | null;
+
+/**
+ * Validates KVNR format in real-time
+ * Checks if input starts with a letter and follows the basic pattern
+ */
+function validateKvnrFormat(input: string): boolean {
+  if (input.length === 0) return true; // Empty is OK
+  if (input.length === 1) return /^[A-Z]$/.test(input); // First char must be letter
+  if (input.length <= 10) {
+    // Check pattern: Letter + digits
+    return /^[A-Z][0-9]*$/.test(input);
+  }
+  return false; // Too long
+}
 
 /**
  * Custom hook for KVNR validation logic
@@ -50,11 +64,18 @@ export function useKvnrValidation() {
 
   /**
    * Handles input change and normalizes the input to uppercase
+   * Also performs real-time format validation
    */
   const handleInputChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value.toUpperCase();
     setKvnrInput(value);
-    setValidationResult(null);
+    
+    // Real-time format validation
+    if (value.length > 0 && !validateKvnrFormat(value)) {
+      setValidationResult('format-error');
+    } else {
+      setValidationResult(null);
+    }
   }, []);
 
   return {

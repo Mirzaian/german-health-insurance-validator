@@ -6,9 +6,9 @@ import './App.css';
 import { ThemeProvider, CssBaseline, Box, Typography } from '@mui/material';
 import { createCustomTheme } from './theme/customTheme';
 import SettingsDialog from './components/SettingsDialog';
-import AppHeader from './components/AppHeader';
+import AppHeader from './components/layout/AppHeader';
 import KvnrValidator from './components/KvnrValidator';
-import Footer from './components/Footer';
+import FooterPage from './pages/Footer';
 import Impressum from './components/Impressum';
 import Datenschutz from './components/Datenschutz';
 import { translations } from './utils/translations';
@@ -79,10 +79,9 @@ function App() {
           {renderContent()}
         </Box>
         
-        <Footer 
+        <FooterPage 
           onImpressumClick={() => setCurrentView('impressum')}
           onDatenschutzClick={() => setCurrentView('datenschutz')}
-          onGithubClick={() => window.open('https://github.com/Mirzaian/german-health-insurance-validator', '_blank')}
         />
       </Box>
     </ThemeProvider>
