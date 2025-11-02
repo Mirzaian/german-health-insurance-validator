@@ -42,6 +42,7 @@ export const translations = {
       clear: 'Löschen',
       validKvnr: 'KVNR ist gültig',
       invalidKvnr: 'KVNR ist ungültig',
+      formatError: 'Ungültiges Format. Es muss mit einem Buchstaben beginnen',
       validationError: 'Fehler bei der Validierung',
     },
     
@@ -130,6 +131,7 @@ export const translations = {
       clear: 'Clear',
       validKvnr: 'KVNR is valid',
       invalidKvnr: 'KVNR is invalid',
+      formatError: 'Invalid format - must start with a letter',
       validationError: 'Validation error',
     },
     
