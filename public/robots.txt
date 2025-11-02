@@ -1,0 +1,9 @@
+# robots.txt for German Health Insurance Validator
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mirzaian.github.io/german-health-insurance-validator/sitemap.xml
+
+# Crawl-delay (optional)
+Crawl-delay: 1

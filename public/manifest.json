@@ -1,0 +1,19 @@
+{
+  "name": "Deutsche KVNR Validator",
+  "short_name": "KVNR Validator",
+  "description": "Kostenloser Online-Validator für deutsche Krankenversichertennummern (KVNR)",
+  "start_url": "/german-health-insurance-validator/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1976d2",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/german-health-insurance-validator/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["health", "utilities", "productivity"],
+  "lang": "de-DE"
+}
