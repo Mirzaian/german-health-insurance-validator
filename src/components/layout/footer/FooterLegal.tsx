@@ -127,7 +127,7 @@ export default function FooterLegal({ onImpressumClick, onDatenschutzClick }: Fo
 
         {/* Version - Right */}
         <Link
-          href="https://github.com/Mirzaian/german-health-insurance-validator/releases/tag/v1.1.0"
+          href="https://github.com/Mirzaian/german-health-insurance-validator/releases/tag/v1.2.0"
           target="_blank"
           rel="noopener noreferrer"
           sx={{
@@ -153,7 +153,7 @@ export default function FooterLegal({ onImpressumClick, onDatenschutzClick }: Fo
             },
           }}
         >
-          v1.1.0
+          v1.2.0
         </Link>
       </Box>
     </Box>
