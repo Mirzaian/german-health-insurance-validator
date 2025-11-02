@@ -1,7 +1,7 @@
 import { Box, Typography, Card, CardContent } from '@mui/material';
 import { useSettings, type Language } from '../hooks/useSettings';
 import { translations } from '../utils/translations';
-import AppHeader from './AppHeader';
+import AppHeader from './layout/AppHeader';
 
 interface DatenschutzProps {
   onBack: () => void;
