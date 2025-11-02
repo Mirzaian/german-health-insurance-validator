@@ -1,7 +1,7 @@
 import { Box, Button } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { useSettings, type Language } from '../hooks/useSettings';
-import { translations } from '../utils/translations';
+import { useSettings, type Language } from '../../hooks/useSettings';
+import { translations } from '../../utils/translations';
 
 interface AppHeaderProps {
   showBackButton?: boolean;
