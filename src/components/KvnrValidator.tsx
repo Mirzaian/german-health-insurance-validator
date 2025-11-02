@@ -114,7 +114,7 @@ export default function KvnrValidator() {
               }}
               variant="outlined"
               autoFocus
-              error={validationResult === 'invalid'}
+              error={validationResult === 'invalid' || validationResult === 'format-error'}
             />
 
             <Box sx={{ 
@@ -140,21 +140,18 @@ export default function KvnrValidator() {
               </Button>
             </Box>
 
-            {/* Validation results */}
-            <Box 
-              id={resultRegionId}
-              sx={{ 
-                mt: { xs: 2.5, sm: 3 },
-                minHeight: validationResult ? 'auto' : '60px',
-                display: 'flex',
-                alignItems: 'center'
-              }}
-              role="status"
-              aria-live="polite"
-              aria-atomic="true"
-            >
-              <Fade in={validationResult !== null} timeout={300}>
-                <Box sx={{ width: '100%' }}>
+            {/* Validation results - only show when there's a result */}
+            {validationResult && (
+              <Fade in={true} timeout={300}>
+                <Box 
+                  id={resultRegionId}
+                  sx={{ 
+                    mt: { xs: 2.5, sm: 3 },
+                  }}
+                  role="status"
+                  aria-live="polite"
+                  aria-atomic="true"
+                >
                   {validationResult === 'valid' && (
                     <Alert 
                       severity="success" 
@@ -167,6 +164,20 @@ export default function KvnrValidator() {
                       role="alert"
                     >
                       {t.validation.validKvnr}
+                    </Alert>
+                  )}
+                  {validationResult === 'format-error' && (
+                    <Alert 
+                      severity="warning" 
+                      sx={{ 
+                        textAlign: 'left',
+                        '& .MuiAlert-message': {
+                          fontSize: { xs: '0.875rem', sm: '1rem' }
+                        }
+                      }}
+                      role="alert"
+                    >
+                      {t.validation.formatError}
                     </Alert>
                   )}
                   {(validationResult === 'invalid' || validationResult === 'error') && (
@@ -185,7 +196,7 @@ export default function KvnrValidator() {
                   )}
                 </Box>
               </Fade>
-            </Box>
+            )}
           </Stack>
         </Box>
       </CardContent>
