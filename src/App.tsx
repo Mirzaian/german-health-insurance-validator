@@ -1,6 +1,6 @@
 
 export default App;
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { useSettings, type Language } from './hooks/useSettings';
 import './App.css';
 import { ThemeProvider, CssBaseline, Box, Typography } from '@mui/material';
@@ -28,6 +28,16 @@ function App() {
   const theme = useMemo(() => createCustomTheme(primaryColor, mode), [primaryColor, mode]);
   const t = translations[language as Language];
   const [currentView, setCurrentView] = useState<ViewType>('main');
+
+  // Update document title based on current view and language
+  useEffect(() => {
+    const titles = {
+      main: 'Deutsche KVNR Validator - Krankenversichertennummer Online Prüfen',
+      impressum: `${t.legal.impressum} - Deutsche KVNR Validator`,
+      datenschutz: `${t.legal.datenschutz} - Deutsche KVNR Validator`
+    };
+    document.title = titles[currentView];
+  }, [currentView, language, t]);
 
   const renderContent = () => {
     switch (currentView) {
