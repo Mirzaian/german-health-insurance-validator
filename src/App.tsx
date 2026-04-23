@@ -9,8 +9,8 @@ import SettingsDialog from './components/SettingsDialog';
 import AppHeader from './components/layout/AppHeader';
 import KvnrValidator from './components/KvnrValidator';
 import FooterPage from './pages/Footer';
-import Impressum from './components/Impressum';
-import Datenschutz from './components/Datenschutz';
+import LegalNotice from './components/LegalNotice';
+import PrivacyPolicy from './components/PrivacyPolicy';
 import { translations } from './utils/translations';
 
 type ViewType = 'main' | 'impressum' | 'datenschutz';
@@ -42,9 +42,9 @@ function App() {
   const renderContent = () => {
     switch (currentView) {
       case 'impressum':
-        return <Impressum onBack={() => setCurrentView('main')} />;
+        return <LegalNotice onBack={() => setCurrentView('main')} />;
       case 'datenschutz':
-        return <Datenschutz onBack={() => setCurrentView('main')} />;
+        return <PrivacyPolicy onBack={() => setCurrentView('main')} />;
       case 'main':
       default:
         return (

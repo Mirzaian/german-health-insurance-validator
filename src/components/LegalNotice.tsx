@@ -3,15 +3,15 @@ import { useSettings, type Language } from '../hooks/useSettings';
 import { translations } from '../utils/translations';
 import AppHeader from './layout/AppHeader';
 
-interface DatenschutzProps {
+interface LegalNoticeProps {
   onBack: () => void;
 }
 
 /**
- * Datenschutz (Privacy Policy) Component
+ * Legal Notice (Impressum) Component
  * 
  */
-export default function Datenschutz({ onBack }: DatenschutzProps) {
+export default function LegalNotice({ onBack }: LegalNoticeProps) {
   const { language } = useSettings();
   const t = translations[language as Language];
 
@@ -38,7 +38,7 @@ export default function Datenschutz({ onBack }: DatenschutzProps) {
             lineHeight: 1.2
           }}
         >
-          {t.legal.datenschutz}
+          {t.legal.impressum}
         </Typography>
         
         <Card 
@@ -57,50 +57,9 @@ export default function Datenschutz({ onBack }: DatenschutzProps) {
         {language === 'de' ? (
           <Box component="article">
             <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-              1. {t.legal.privacyAtGlance}
+              {t.legal.legalInfoTmg}
             </Typography>
             
-            <Typography variant="subtitle1" gutterBottom sx={{ mt: 2, fontWeight: 'bold' }}>
-              {t.legal.generalInfo}
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 2 }}>
-              {t.legal.generalInfoText}
-            </Typography>
-
-            <Typography variant="subtitle1" gutterBottom sx={{ mt: 2, fontWeight: 'bold' }}>
-              {t.legal.dataCollection}
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 2 }}>
-              <strong>{t.legal.noKvnrStorage}:</strong> {t.legal.noKvnrStorageText}
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 2 }}>
-              <strong>{t.legal.localSettings}:</strong> {t.legal.localSettingsText}
-            </Typography>
-
-            <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-              2. {t.legal.hosting}
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 2 }}>
-              {t.legal.hostingText}
-            </Typography>
-
-            <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-              3. {t.legal.mandatoryInfo}
-            </Typography>
-            
-            <Typography variant="subtitle1" gutterBottom sx={{ mt: 2, fontWeight: 'bold' }}>
-              {t.legal.dataProtection}
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 2 }}>
-              {t.legal.dataProtectionText}
-            </Typography>
-
-            <Typography variant="subtitle1" gutterBottom sx={{ mt: 2, fontWeight: 'bold' }}>
-              {t.legal.responsibleParty}
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 2 }}>
-              {t.legal.responsiblePartyText}
-            </Typography>
             <Typography variant="body1" sx={{ mb: 2 }}>
               <strong>Kevin Mirzaian</strong><br />
               An der Gehrengasse 51<br />
@@ -109,36 +68,44 @@ export default function Datenschutz({ onBack }: DatenschutzProps) {
             </Typography>
 
             <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-              4. {t.legal.dataCollectionWebsite}
+              {t.legal.contact}
+            </Typography>
+            <Typography variant="body1" sx={{ mb: 2 }}>
+              E-Mail: kevin@mirzaian.de<br />
+            </Typography>
+
+            <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
+              {t.legal.responsibleContent}
+            </Typography>
+            <Typography variant="body1" sx={{ mb: 2 }}>
+              Kevin Mirzaian<br />
+              An der Gehrengasse 51<br />
+              64319 Pfungstadt
+            </Typography>
+
+            <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
+              {t.legal.disclaimer}
             </Typography>
             
             <Typography variant="subtitle1" gutterBottom sx={{ mt: 2, fontWeight: 'bold' }}>
-              {t.legal.serverLogFiles}
+              {t.legal.liabilityContent}
             </Typography>
             <Typography variant="body1" sx={{ mb: 2 }}>
-              {t.legal.serverLogFilesText}
+              {t.legal.liabilityContentText}
             </Typography>
-            <Typography component="div" variant="body1" sx={{ mb: 2 }}>
-              {t.legal.serverLogFilesList.split('\n').map((line, index) => (
-                <span key={index}>
-                  {line}
-                  {index < t.legal.serverLogFilesList.split('\n').length - 1 && <><br /></>}
-                </span>
-              ))}
+
+            <Typography variant="subtitle1" gutterBottom sx={{ mt: 2, fontWeight: 'bold' }}>
+              {t.legal.liabilityLinks}
+            </Typography>
+            <Typography variant="body1" sx={{ mb: 2 }}>
+              {t.legal.liabilityLinksText}
             </Typography>
 
             <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-              5. {t.legal.yourRights}
+              {t.legal.copyright}
             </Typography>
             <Typography variant="body1" sx={{ mb: 2 }}>
-              {t.legal.yourRightsText}
-            </Typography>
-
-            <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-              6. {t.legal.openSourceLicensing}
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 2 }}>
-              {t.legal.openSourceInfo}.
+              {t.legal.copyrightText}
             </Typography>
 
             <Typography variant="body2" sx={{ mt: 4, color: 'text.secondary', fontStyle: 'italic' }}>
@@ -148,66 +115,58 @@ export default function Datenschutz({ onBack }: DatenschutzProps) {
         ) : (
           <Box component="article">
             <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-              1. {t.legal.privacyAtGlance}
+              {t.legal.legalInfoTmg}
+            </Typography>
+            
+            <Typography variant="body1" sx={{ mb: 2 }}>
+              <strong>Kevin Mirzaian</strong><br />
+              An der Gehrengasse 51<br />
+              64319 Pfungstadt<br />
+              Deutschland
+            </Typography>
+
+            <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
+              {t.legal.contact}
+            </Typography>
+            <Typography variant="body1" sx={{ mb: 2 }}>
+              E-Mail: kevin@mirzaian.de<br />
+
+            </Typography>
+
+            <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
+              {t.legal.responsibleContent}
+            </Typography>
+            <Typography variant="body1" sx={{ mb: 2 }}>
+              Kevin Mirzaian<br />
+              An der Gehrengasse 51<br />
+              64319 Pfungstadt
+            </Typography>
+
+            <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
+              {t.legal.disclaimer}
             </Typography>
             
             <Typography variant="subtitle1" gutterBottom sx={{ mt: 2, fontWeight: 'bold' }}>
-              {t.legal.generalInfo}
+              {t.legal.liabilityContent}
             </Typography>
             <Typography variant="body1" sx={{ mb: 2 }}>
-              {t.legal.generalInfoText}
+              {t.legal.liabilityContentText}
             </Typography>
 
             <Typography variant="subtitle1" gutterBottom sx={{ mt: 2, fontWeight: 'bold' }}>
-              {t.legal.dataCollection}
+              {t.legal.liabilityLinks}
             </Typography>
             <Typography variant="body1" sx={{ mb: 2 }}>
-              <strong>{t.legal.noKvnrStorage}</strong><br />
-              {t.legal.noKvnrStorageText}
+              {t.legal.liabilityLinksText}
             </Typography>
 
             <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-              2. {t.legal.mandatoryInfo}
-            </Typography>
-            
-            <Typography variant="subtitle1" gutterBottom sx={{ mt: 2, fontWeight: 'bold' }}>
-              {t.legal.dataProtection}
+              {t.legal.copyright}
             </Typography>
             <Typography variant="body1" sx={{ mb: 2 }}>
-              {t.legal.dataProtectionText}
+              {t.legal.copyrightText}
             </Typography>
 
-            <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-              3. {t.legal.dataCollectionWebsite}
-            </Typography>
-            
-            <Typography variant="subtitle1" gutterBottom sx={{ mt: 2, fontWeight: 'bold' }}>
-              {t.legal.serverLogFiles}
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 2 }}>
-              {t.legal.serverLogFilesText}
-            </Typography>
-
-            <Typography variant="subtitle1" gutterBottom sx={{ mt: 2, fontWeight: 'bold' }}>
-              {t.legal.localSettings}
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 2 }}>
-              {t.legal.localSettingsText}
-            </Typography>
-
-            <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-              4. {t.legal.yourRights}
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 2 }}>
-              {t.legal.yourRightsText}
-            </Typography>
-
-            <Typography variant="h6" gutterBottom sx={{ mt: 3 }}>
-              5. {t.legal.openSourceLicensing}
-            </Typography>
-            <Typography variant="body1" sx={{ mb: 2 }}>
-              {t.legal.openSourceInfo}.
-            </Typography>
             <Typography variant="body2" sx={{ mt: 4, color: 'text.secondary', fontStyle: 'italic' }}>
               {t.legal.lastUpdated}
             </Typography>
