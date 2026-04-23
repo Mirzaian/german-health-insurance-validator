@@ -2,6 +2,8 @@ import { Box } from '@mui/material';
 import FooterBadge from './FooterBadge';
 import { NpmIcon } from '../../../assets/icons/NpmIcon';
 import { GitHubIcon } from '../../../assets/icons/GitHubIcon';
+import { useSettings, type Language } from '../../../hooks/useSettings';
+import { translations } from '../../../utils/translations';
 
 interface BadgeData {
   label: string;
@@ -18,6 +20,9 @@ interface BadgeData {
  * Grid layout for all project badges with responsive design
  */
 export default function FooterBadgesGrid() {
+  const { language } = useSettings();
+  const t = translations[language as Language];
+
   const badges: BadgeData[] = [
     {
       label: 'NPM Package',
@@ -42,6 +47,22 @@ export default function FooterBadgesGrid() {
       href: 'https://github.com/Mirzaian/german-health-insurance-validator',
       icon: <GitHubIcon />,
       gradient: 'linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%)'
+    },
+    {
+      label: t.footer.homepage,
+      sublabel: 'mirzaian.de',
+      color: '#1976d2',
+      href: 'https://mirzaian.de',
+      icon: (
+        <Box
+          component="img"
+          src="https://mirzaian.de/favicon.ico"
+          alt=""
+          loading="lazy"
+          sx={{ width: '75%', height: '75%', objectFit: 'contain', mt: '10px' }}
+        />
+      ),
+      gradient: 'linear-gradient(135deg, #1976d2 0%, #42a5f5 100%)'
     }
   ];
 
@@ -49,7 +70,7 @@ export default function FooterBadgesGrid() {
     <Box
       sx={{
         display: 'grid',
-        gridTemplateColumns: { xs: 'repeat(1, 1fr)', sm: 'repeat(3, 1fr)' },
+        gridTemplateColumns: { xs: 'repeat(1, 1fr)', sm: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' },
         gap: { xs: 2, sm: 3 },
         mb: { xs: 4, sm: 5 },
         justifyContent: 'center',
